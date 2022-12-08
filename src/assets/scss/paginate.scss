@@ -1,0 +1,38 @@
+.paginate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.btn {
+  height: 40px;
+  width: 40px;
+  border: none;
+  margin-inline: 5px;
+  cursor: pointer;
+}
+
+.back-btn,
+.next-btn {
+  background-color: transparent;
+  border: 1px black solid;
+  border-bottom-right-radius: 12px;
+  border-top-left-radius: 12px;
+}
+
+.btn-active {
+  background-color: red;
+  color: white;
+  border-bottom-right-radius: 12px;
+}
+
+@media(max-width:453px) {
+  .btn {
+    height: 30px;
+    width: 30px;
+    border: none;
+    margin-inline: 5px;
+    
+  }
+}

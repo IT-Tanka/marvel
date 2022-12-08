@@ -1,0 +1,113 @@
+.characters {
+  position: relative;
+}
+
+.characters__list {
+  margin-top: 0;
+  padding: 0 0 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, calc(25% - 40px)));
+  flex-wrap: wrap;
+  gap: 80px 40px;
+  justify-items: center;
+}
+
+.characters__item {
+  border-radius: 10px;
+  height: 500px;
+  width: 100%;
+  border: 5px solid white;
+  border-bottom-right-radius: 30px;
+}
+
+.characters__item:nth-child(even) {
+  top: 50px;
+}
+
+.characters__link {
+  position: relative;
+  display: block;
+  height: 100%;
+  color: black;
+  border-bottom-right-radius: 30px;
+}
+
+.characters__link:after {
+  content: "";
+  background-color: red;
+  position: absolute;
+  bottom: 190px;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 10px;
+  z-index: 1;
+  transition: all 0.8s;
+}
+
+.characters__img-wrp {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.characters__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.8s;
+}
+
+.characters__item:hover .characters__link:after {
+  bottom: 0;
+  height: 200px;
+  border-bottom-right-radius: 30px;
+}
+
+.characters__item:hover .characters__img {
+  transform: scale(1.2);
+}
+
+.characters__name-wrp {
+  display: block;
+  padding: 10px 5px 10px 5px;
+  border-bottom-right-radius: 30px;
+  width: 100%;
+  background-color: black;
+  position: relative;
+  bottom: 0;
+  height: 190px;
+}
+
+.characters__name {
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+  position: absolute;
+  z-index: 3;
+}
+
+@media (max-width: 1000px) {
+  .characters__list {
+    grid-template-columns: repeat(auto-fit, minmax(100px, calc(33.3333333333% - 15px)));
+    gap: 30px 20px;
+  }
+
+  .characters__item:nth-child(even) {
+    position: static;
+    top: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .characters__list {
+    grid-template-columns: repeat(auto-fit, minmax(100px, calc(50% - 15px)));
+  }
+}
+
+@media (max-width: 467px) {
+  .characters__list {
+    grid-template-columns: 100%;
+  }
+}

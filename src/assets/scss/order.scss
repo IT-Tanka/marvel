@@ -1,0 +1,123 @@
+.order-panel {
+  padding: 10px 0;
+  position: relative;
+  top: -80px;
+  transform: scale(0);
+  background-color: transparent;
+  color: transparent;
+  border: 2px solid transparent;
+  transition: all 0.5s;
+  z-index: 2;
+
+  .order-panel__form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Marvel, sans-serif;
+  }
+
+  &__title {
+    font-family:Raleway, sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+  }
+
+  &__by {
+    border: 2px solid #2B2B2B;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 20px;
+  }
+
+  &__input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  &__input+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+  }
+
+  &__input+label::before {
+    content: '';
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: none;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    margin-right: 0.5em;
+    transition: all 0.8s;
+
+  }
+
+  &__input:not(:disabled):not(:checked)+label:hover::before {
+    background-color: rgba(139, 3, 3, 0.644);
+  }
+
+  &__input:not(:disabled):active+label::before {
+    background-color: red;
+    border-color: black;
+  }
+
+  &__input:focus:not(:checked)+label::before {
+    background-color: rgba(119, 12, 12, 0.863);
+  }
+
+  &__input:checked+label::before {
+    background-color: red;
+    border-color: black;
+  }
+
+}
+
+.active {
+
+  top: 0;
+  background-color: #171717;
+  color: white;
+  padding: 10px 0;
+  border: 2px solid #2B2B2B;
+  transform: scale(1);
+}
+
+@media (max-width:768px) {
+  .order-panel {
+    .order-panel__form {
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    &__title {
+      font-size: 22px;
+    }
+
+    &__by {
+      display: flex;
+      height: 40px;
+      gap: 3px;
+      padding: 5px 10px;
+    }
+
+    &__input {
+      width: 25px;
+      height: 25px;
+      margin-left: 10px;
+    }
+  }
+}
