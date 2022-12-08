@@ -55,7 +55,7 @@ export default {
       description: null,
       error: [],
       movieID: useRoute().params.id,
-      apiURL: 'http://gateway.marvel.com/v1/public/characters/' + useRoute().params.id,
+      apiURL: 'https://gateway.marvel.com/v1/public/characters/' + useRoute().params.id,
       params: {
         ts: '1',
         apikey: 'cbd6c4a9cfa54613edaddcd1d0052bb6',

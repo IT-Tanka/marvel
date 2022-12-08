@@ -74,7 +74,7 @@ export default {
       currentPage: 1,
       name: "",
       totalResults: 0,
-      searchApiURL: "http://gateway.marvel.com/v1/public/characters",
+      searchApiURL: "https://gateway.marvel.com/v1/public/characters",
       params: {
         ts: "1",
         apikey: "cbd6c4a9cfa54613edaddcd1d0052bb6",
@@ -111,7 +111,7 @@ export default {
     },
     listAfterSearch(event){
       delete this.params.nameStartsWith;
-      this.searchApiURL="http://gateway.marvel.com/v1/public/characters"; 
+      this.searchApiURL="https://gateway.marvel.com/v1/public/characters"; 
       this.charactersList();  
       document.querySelector('.search-form__input').value='';
       event.target.style.display='none';

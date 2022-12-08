@@ -23,8 +23,8 @@
                 </p>
               </div>
               <div v-else class="character__count-area" :id="param.name">
-                <p  class="character__description" v-for="el in images" :key="el.images">
-                  <img  v-bind:src="el" alt="" class="character__description-img">
+                <p  class="character__description" v-for="(title, i) in param.titles" :key="i">>
+                  <img  v-bind:src="title.replace(/http/gi, 'https')" alt="" class="character__description-img">
                 </p>
               </div>
             </div>
@@ -57,7 +57,7 @@ export default {
       description:null,
       error: [],
       comicsID: useRoute().params.id,
-      apiURL: 'http://gateway.marvel.com/v1/public/comics/' + useRoute().params.id,
+      apiURL: 'https://gateway.marvel.com/v1/public/comics/' + useRoute().params.id,
       params: {
         ts:'1',
         apikey: 'cbd6c4a9cfa54613edaddcd1d0052bb6',

@@ -61,7 +61,7 @@ export default {
       currentPage: 1,
       title: "",
       totalResults: 0,
-      searchApiURL: "http://gateway.marvel.com/v1/public/comics",
+      searchApiURL: "https://gateway.marvel.com/v1/public/comics",
       params: {
         ts: "1",
         apikey: "cbd6c4a9cfa54613edaddcd1d0052bb6",
@@ -106,7 +106,7 @@ export default {
     },
     listAfterSearch(event){
       delete this.params.titleStartsWith; 
-      this.searchApiURL='http://gateway.marvel.com/v1/public/comics'; 
+      this.searchApiURL='https://gateway.marvel.com/v1/public/comics'; 
       this.comicsList(); 
       document.querySelector('.search-form__input').value='';
       event.target.style.display='none';
@@ -142,7 +142,7 @@ export default {
     },
     updateComicsTop(){
       let sortPanel = document.querySelector(".order-panel");
-      this.comicsTop=-(sortPanel.offsetHeight)+64;
+      if(sortPanel) this.comicsTop=-(sortPanel.offsetHeight)+64;
     }
   },
   mounted() {
