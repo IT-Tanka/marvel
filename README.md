@@ -1,4 +1,5 @@
 # Marvel
+# 🦸An entertainment app built using the Marvel Comics API
 
 ## Project setup
 ```
