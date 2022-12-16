@@ -23,7 +23,7 @@
               </div>
               <div v-else class="character__count-area" :id="param.name">
                 <p  class="character__description"  v-for="(title, i) in param.titles" :key="i">
-                  <a :href="title" class="">{{title}}</a>
+                  <a :href="title" class="character__description">{{title}}</a>
                 </p>
               </div>
           </div>

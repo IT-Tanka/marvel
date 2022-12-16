@@ -1,6 +1,7 @@
-.comics{
-  position:relative;
+.comics {
+  position: relative;
 }
+
 .comics__list {
   padding: 0 0 100px;
   display: grid;
@@ -78,5 +79,9 @@
 @media (max-width: 480px) {
   .comics__list {
     grid-template-columns: 100%;
+  }
+
+  .comics__item:hover .comics__img-wrp {
+    transform: none;
   }
 }

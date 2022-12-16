@@ -7,7 +7,7 @@
     v-on:click="openSortPanel"
   />
   <SortPanel :orderArr="orders" v-on:input="charactersSort($event.target.id)" />
-  <div class="characters container ">
+  <div class="characters container " :style="{marginTop:charactersTop + 'px'}">
     <button class="back-search-btn" v-on:click="listAfterSearch($event)">
       ←all characters
     </button>
@@ -38,7 +38,7 @@
         </router-link>
       </div>
     </div>
-    <div v-if="totalResults" class="paginate">
+    <div v-if="totalResults > limit" class="paginate">
       <PaginatePanel
         :current="currentPage"
         :total="totalResults"
@@ -65,6 +65,7 @@ export default {
   name: "CharactersPage",
   data() {
     return {
+      charactersTop:0,
       placeholderCharacter:"find your character",
       orders: ["name", "modified"],
       results: null,
@@ -93,11 +94,15 @@ export default {
           this.limit = response.data.data.limit;
         })
         .catch((e) => {
+          this.results= null;
+          this.totalResults=0;
           this.error.push(e);
         });
     },
     charactersSearch(name) {
       this.name = name;
+      this.searchApiURL="https://gateway.marvel.com/v1/public/characters";
+      delete this.params.nameStartsWith;
       if (this.name) {
         if (!isNaN(this.name) && this.name.length > 2) {
           this.searchApiURL = this.searchApiURL + "/" + this.name;
@@ -122,14 +127,20 @@ export default {
       if (sortPanel.classList.contains("active")) {
         brg.style.transform = "rotate(0deg)";
         sortPanel.classList.remove("active");
+          this.updateCharactersTop();
       } else {
         brg.style.transform = "rotate(180deg)";
         sortPanel.classList.add("active");
+        this.charactersTop='0';
       }
     },
     charactersSort(sortParam) {
       this.params.orderBy = sortParam;
       this.charactersList();
+    },
+    updateCharactersTop(){
+      let sortPanel = document.querySelector(".order-panel");
+      if(sortPanel) this.charactersTop=-(sortPanel.offsetHeight)+64;
     },
     onClickHandler(page) {
       this.page = page;
@@ -143,6 +154,7 @@ export default {
   },
   mounted() {
     this.charactersList();
+    this.updateCharactersTop();
   },
 };
 </script>

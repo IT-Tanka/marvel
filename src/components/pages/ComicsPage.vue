@@ -31,7 +31,7 @@
         </router-link>
       </div>
     </div>
-    <div class="paginate" v-if="totalResults">
+    <div class="paginate" v-if="totalResults > limit">
       <PaginatePanel
         :current="currentPage"
         :total="totalResults"
@@ -78,13 +78,19 @@ export default {
           this.results = response.data.data.results;
           this.totalResults = response.data.data.total;
           this.limit = response.data.data.limit;
+          this.ePath=true;
         })
         .catch((e) => {
+          this.results= null;
+          this.totalResults=0;
           this.error.push(e);
         });
     },
     comicsSearch(title) {
       this.title = title;
+      this.searchPath='';
+      delete this.params.titleStartsWith; 
+      this.searchApiURL='https://gateway.marvel.com/v1/public/comics'; 
       if (this.title) {
         if (!isNaN(this.title) && this.title.length > 2) {
           this.searchPath = this.searchApiURL + "/" + this.title;
@@ -115,8 +121,6 @@ export default {
     openSortPanel() {
       let brg = document.querySelector(".search-form__burger-svg");
       let sortPanel = document.querySelector(".order-panel");
-      
-
       if (sortPanel.classList.contains("active")) {
         brg.style.transform = "rotate(0deg)";
         sortPanel.classList.remove("active");

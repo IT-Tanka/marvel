@@ -80,4 +80,8 @@
   .comics__list {
     grid-template-columns: 100%;
   }
+
+  .comics__item:hover .comics__img-wrp {
+    transform: none;
+  }
 }
