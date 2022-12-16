@@ -1,0 +1,23 @@
+.list__back-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 35px;
+  border-bottom-right-radius: 12px;
+  border-top-left-radius: 12px;
+  color: white;
+  background-color: grey;
+  border: none;
+  margin: 20px 0;
+  font-family: Marvel, sans-serif;
+  font-size: 20px;
+  line-height: 1;
+  padding: 0 40px;
+  display: none;
+  transition: all 0.5s;
+}
+
+.list__back-btn:hover {
+  background-color: red;
+}

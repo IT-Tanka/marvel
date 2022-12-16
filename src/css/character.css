@@ -1,0 +1,213 @@
+.character {
+  background: url("../img/bg3.webp") no-repeat center/cover;
+  padding: 30px 0 300px;
+}
+
+.character__main {
+  margin: 30px auto 300px;
+  padding: 50px 40px;
+  display: flex;
+  gap: 50px;
+  color: white;
+  width: 80%;
+  background-color: #2B2B2B;
+  justify-content: space-between;
+  position: relative;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.character__main-left {
+  max-width: calc(40% - 50px);
+  width: 100%;
+  padding: 20px 0;
+  border-top-left-radius: 50px;
+}
+
+.character__main-left .character__img {
+  margin: auto;
+  display: block;
+  border-top-left-radius: 50px;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 2px 19px 44px 2px rgba(238, 60, 29, 0.37);
+}
+
+.character__main-left .comic__img {
+  width: 70%;
+}
+
+.character__main-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  max-width: calc(60% - 50px);
+  width: 100%;
+  min-height: 200px;
+  height: 100%;
+  padding: 20px 50px;
+  align-self: end;
+}
+
+.character__main-right .character__name {
+  font-size: 30px;
+  font-family: Raleway, sans-serif;
+  align-self: start;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.character__main-right .character__name span {
+  font-size: 18px;
+  font-family: Marvel, sans-serif;
+}
+
+.character__main-right .character__description {
+  font-size: 18px;
+  font-weight: 500px;
+  margin-bottom: 10px;
+}
+
+.character__main-right .character__buttons-block {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  width: 100%;
+}
+
+.character__main-right .character__param {
+  width: 100%;
+}
+
+.character__main-right .character__count-button {
+  color: white;
+  background-color: black;
+  font-size: 18px;
+  font-weight: 300;
+  height: 40px;
+  font-family: Raleway, sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-right-radius: 16px;
+  border-top-left-radius: 16px;
+  transition: all 0.2s;
+}
+
+.character__main-right .character__count-button:hover {
+  background: radial-gradient(circle, rgb(236, 21, 21) 0%, rgb(57, 8, 8) 100%);
+  color: black;
+}
+
+.character__main-right .active {
+  background: radial-gradient(circle, rgb(236, 21, 21) 0%, rgb(57, 8, 8) 100%);
+  color: white;
+}
+
+.character__main-right .character__link {
+  display: block;
+}
+
+.character__main-right .character__count-area {
+  display: none;
+}
+
+.character__main-right .visible {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-top: none;
+  border-bottom-right-radius: 35px;
+  padding: 50px 40px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .character__main {
+    width: 100%;
+  }
+
+  .character__main-left {
+    max-width: calc(50% - 20px);
+    padding: 10px 0;
+  }
+
+  .character__main-right {
+    max-width: calc(50% - 20px);
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .character__main {
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+
+  .character__main-left {
+    border-top-left-radius: 25px;
+  }
+
+  .character__main-left .character__img {
+    border-top-left-radius: 25px;
+  }
+
+  .character__main-right .character__name {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .character__main-right .character__name span {
+    font-size: 16px;
+  }
+
+  .character__main-right .character__description {
+    font-size: 16px;
+  }
+
+  .character__main-right .character__count-button {
+    font-size: 16px;
+    height: 30px;
+    border-bottom-right-radius: 12px;
+    border-top-left-radius: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .character__main {
+    padding: 20px 10px;
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  .character__main-left {
+    max-width: 100%;
+    padding: 10px 0;
+  }
+
+  .character__main-right {
+    max-width: 100%;
+    padding: 10px 0;
+  }
+
+  .character__main-right .character__count-button {
+    font-size: 18px;
+    height: 40px;
+  }
+}
